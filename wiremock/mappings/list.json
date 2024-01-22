@@ -3,10 +3,47 @@
   "requiredScenarioState": "Started",
   "request": {
     "method": "GET",
-    "url": "/reviewed-preprints"
+    "urlPathPattern": "/reviewed-preprints",
+    "queryParameters": {
+      "page": {
+        "or": [
+          {
+            "matches": "^[1-9][0-9]*$"
+          },
+          {
+            "absent": true
+          }
+        ]
+      },
+      "per-page": {
+        "or": [
+          {
+            "matches": "^(0?[1-9]|[1-9][0-9]|100)$"
+          },
+          {
+            "absent": true
+          }
+        ]
+      },
+      "order": {
+        "or": [
+          {
+            "matches": "^(asc|desc)$"
+          },
+          {
+            "absent": true
+          }
+        ]
+      }
+    }
   },
   "response": {
     "status": 200,
+    "headers": {
+      "Cache-Control": "max-age=300, public, stale-if-error=86400, stale-while-revalidate=300",
+      "Content-Type": "application/vnd.elife.reviewed-preprint-list+json; version=1",
+      "Vary": "Accept, Authorization, Accept-Encoding"
+    },
     "jsonBody": {
       "total": 0,
       "items": []
