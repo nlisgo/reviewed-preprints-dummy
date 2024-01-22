@@ -1,4 +1,4 @@
-name: Pipeline
+name: Publish Docker image
 
 on:
   pull_request:
