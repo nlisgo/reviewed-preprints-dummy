@@ -1,0 +1,15 @@
+{
+  "scenarioName": "reviewed-preprints-list",
+  "requiredScenarioState": "Started",
+  "request": {
+    "method": "GET",
+    "url": "/reviewed-preprints"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "total": 0,
+      "items": []
+    }
+  }
+}
